@@ -21,7 +21,10 @@ module.exports = {
     },
     optimization: {
         minimize: true,
-        minimizer: [ new CssMinimizerWebpackPlugin()]
+        minimizer: [ 
+            new CssMinimizerWebpackPlugin(),
+            '...'
+        ]
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -55,3 +58,6 @@ module.exports = {
 // style loader adiciona dinamicamente no dom a tag style com o estilo da página
 
 // mini-css-extract-plugin é utilizado para gerar um bundle de css e assim otimizar a aplicação, também prevening fouc (Flash of unstyled content)
+
+// css-minimizer-webpack-plugin: como o webpack não faz automaticamente a minificação de um arquivo .css, utiliza-se esse plugin para isso
+//  '...' necessário para manter a minificação de outros arquivos pelo webpack 
