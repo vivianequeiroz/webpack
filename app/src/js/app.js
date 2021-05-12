@@ -1,5 +1,5 @@
 import { NegociacaoController } from './controllers/negociacao-controller.js';
-import 'bootstrap/dist/css/bootstrap.css';
+import '/Users/vivianequeiroz/Documents/Programacao/webpack/node_modules/bootstrap/dist/css/bootstrap.css';
 
 console.log("testando hash");
 

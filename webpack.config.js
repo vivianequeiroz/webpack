@@ -12,7 +12,7 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: '/\.css$/', use: ['style-loader','css-loader'] }
+            { test: /\.css$/, use: ['style-loader','css-loader'] }
         ]
     },
     plugins: [
@@ -21,7 +21,6 @@ module.exports = {
             filename: 'app.html',
             hash: true
         }),
-       
     ]
 }
 
@@ -41,3 +40,5 @@ module.exports = {
 // npm pode ser utilizado para gerenciamento de dependências de frontend - webpack responsável pelo carregamento dessas e adicioná-las ao bundle da apliacação
 
 // modulo para importação de css no arquivo js => module
+
+// style loader adiciona dinamicamente no dom a tag style com o estilo da página
