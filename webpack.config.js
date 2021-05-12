@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 
@@ -12,7 +12,10 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.css$/, use: ['style-loader','css-loader'] }
+            { 
+                test: /\.css$/, 
+                use: [ MiniCssExtractPlugin.loader,'css-loader'] 
+            }
         ]
     },
     plugins: [
@@ -21,6 +24,9 @@ module.exports = {
             filename: 'app.html',
             hash: true
         }),
+        new MiniCssExtractPlugin({
+            filename: 'style.css'
+        })
     ]
 }
 
@@ -42,3 +48,5 @@ module.exports = {
 // modulo para importação de css no arquivo js => module
 
 // style loader adiciona dinamicamente no dom a tag style com o estilo da página
+
+// mini-css-extract-plugin é utilizado para gerar um bundle de css e assim otimizar a aplicação, também prevening fouc (Flash of unstyled content)
