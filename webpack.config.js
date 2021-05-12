@@ -6,11 +6,13 @@ module.exports = {
     entry: './app/src/js/app.js',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'app/dist')
+        path: path.resolve(__dirname, 'app/dist'),
+        clean: true
     },
     plugins: [new HtmlWebpackPlugin({
         template: './app/src/app.html',
-        filename: 'app.html'
+        filename: 'app.html',
+        hash: true
     })]
 }
 
@@ -23,3 +25,6 @@ module.exports = {
 //HtmlWebpackPlugin precisa ser instanciado - pois assim poderá receber parâmetros que permitem alterar algum padrão na criação de arquivos, ex: index.html por app.html 
 
 // em app.js não precisa haver importação do script, pois o que será executado em ambiente dev será o script de bundle.js
+
+// hash: true adiciona um hash no nome do bundle para que o navegador seja capaz de identificar se houve alguma alteração
+// na página e só fazer um download se esse for diferente 
