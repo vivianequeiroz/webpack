@@ -29,15 +29,19 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './app/src/app.html',
-            filename: 'app.html',
+            template: './app/src/index.html',
+            filename: 'index.html',
             hash: true
         }),
         new MiniCssExtractPlugin({
             filename: 'style.css'
         }),
         new webpack.optimize.ModuleConcatenationPlugin()
-    ]
+    ],
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        port: 3000
+    }
 }
 
 // executado na plataforma nodejs
@@ -65,3 +69,5 @@ module.exports = {
 //  '...' necessário para manter a minificação de outros arquivos pelo webpack 
 
 // webpack.optimize.ModuleConcatenationPlugin() => otimização máxima que não vem ativada por padrão, o build pode demorar mais 
+
+// lazy lading code splitting => core spas 
