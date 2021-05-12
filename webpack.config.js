@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
 
@@ -34,7 +35,8 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: 'style.css'
-        })
+        }),
+        new webpack.optimize.ModuleConcatenationPlugin()
     ]
 }
 
@@ -61,3 +63,5 @@ module.exports = {
 
 // css-minimizer-webpack-plugin: como o webpack não faz automaticamente a minificação de um arquivo .css, utiliza-se esse plugin para isso
 //  '...' necessário para manter a minificação de outros arquivos pelo webpack 
+
+// webpack.optimize.ModuleConcatenationPlugin() => otimização máxima que não vem ativada por padrão, o build pode demorar mais 
