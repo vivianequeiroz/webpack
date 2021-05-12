@@ -1,4 +1,5 @@
 import { NegociacaoController } from './controllers/negociacao-controller.js';
+import 'bootstrap/dist/css/bootstrap.css';
 
 console.log("testando hash");
 

@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
 
@@ -10,17 +10,18 @@ module.exports = {
         path: path.resolve(__dirname, 'app/dist'),
         clean: true
     },
+    module: {
+        rules: [
+            { test: '/\.css$/', use: ['style-loader','css-loader'] }
+        ]
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './app/src/app.html',
             filename: 'app.html',
             hash: true
         }),
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: './app/src/css', to: 'css' }
-            ]
-        })
+       
     ]
 }
 
@@ -36,3 +37,7 @@ module.exports = {
 
 // hash: true adiciona um hash no nome do bundle para que o navegador seja capaz de identificar se houve alguma alteração
 // na página e só fazer um download se esse for diferente 
+
+// npm pode ser utilizado para gerenciamento de dependências de frontend - webpack responsável pelo carregamento dessas e adicioná-las ao bundle da apliacação
+
+// modulo para importação de css no arquivo js => module
